@@ -20,6 +20,7 @@ class _BlogPageState extends State<BlogPage> {
   Future<List<ArticalOverview>> gd() async {
     dynamic response = await dio.get('/articals');
     print(response);
+    print(response.data);
     return List<ArticalOverview>.from(response.data['articalList']
         .map((v) => ArticalOverview.fromJson(v)));
   }

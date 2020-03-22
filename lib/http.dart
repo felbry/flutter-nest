@@ -12,22 +12,23 @@ Dio createDio () {
       Loading.before();
     },
     onResponse:(Response response){
-      Future.delayed(Duration(seconds: 3), () {
-        Loading.complete();
-        return response.data['data'];
-      });
-      // return response.data['data'];
+      // Future.delayed(Duration(seconds: 3), () {
+      //   Loading.complete();
+      //   return response.data['data'];
+      // });
+      // Loading.complete();
+      return response.data['data'];
     },
     onError: (DioError err) async {
       print(err);
       Loading.complete();
-      Scaffold
-        .of(Loading.ctx)
-        .showSnackBar(
-          SnackBar(
-            content: Text('查看提示信息')
-          )
-        );
+      // Scaffold
+      //   .of(Loading.ctx)
+      //   .showSnackBar(
+      //     SnackBar(
+      //       content: Text('查看提示信息')
+      //     )
+      //   );
     }
   ));
   return dio;
